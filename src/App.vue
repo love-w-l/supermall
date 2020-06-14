@@ -1,28 +1,27 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <maintab class="rootapp"></maintab>
+<!--    exclude排除详情页每次获取新的iid请求数据-->
+    <keep-alive exclude="detail">
+    <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+  import maintab from './components/content/maintab'
+  //引入兼容公共css样式
+import '@/assets/css/base.css'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    maintab
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  .rootapp{
+    z-index: 10;
+  }
 </style>
